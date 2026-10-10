@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワカイトキー</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="images/logo.png" type="image/png">
+<style>
+    /* 태국어에 최적화된 Sarabun 폰트를 불러옵니다 */
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap');
+    /* 히어로 타이틀(데바나가리)용 폰트 */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;900&display=swap');
+    
+    body {
+        font-family: 'Sarabun', sans-serif;
+        /* 일본어는 글자 단위 개행이 정상. 금칙(。、」 등 줄머리 금지)만 지킨다 */
+        word-break: normal;
+		line-break: strict;
+		overflow-wrap: break-word;
+		overflow-x: hidden; /* 가로 스크롤 방지 */
+    }
+	/* 짧은 헤드라인은 어절이 쪼개지지 않게 (필요한 곳에서 inline-block 스팬으로 감쌈) */
+	.keep-phrase { word-break: keep-all; }
+.hero-copy {
+    left: 50%;
+    top: 82%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Noto Sans Devanagari', 'Sarabun', sans-serif;
+}
+.hero-copy .hero-line-lead,
+.hero-copy .hero-line-main {
+    font-size: clamp(2.1rem, 5vw, 3.7rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.45);
+}
+.hero-copy .hero-line-lead {
+    color: #ffd23f;
+}
+.hero-copy .hero-line-main {
+    color: #ffffff;
+}
+.hero-copy .hero-subtitle {
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    font-weight: 400;
+    color: #f2f2f2;
+    margin: 0.9em 0 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+@media (max-width: 767px) {
+    .hero-copy {
+        left: 50%;
+        top: 75%;
+        bottom: 24%;
+        transform: translateX(-50%);
+        width: 92%;
+    }
+    /* 모바일에선 한 줄에 들어오도록 줄바꿈 금지 + 뷰포트 폭에 맞춰 축소 */
+    .hero-copy .hero-line-lead,
+    .hero-copy .hero-line-main { white-space: nowrap; }
+    .hero-copy .hero-line-lead { font-size: clamp(1.4rem, 5.6vw, 2rem); }
+    .hero-copy .hero-line-main { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+    .hero-copy .hero-subtitle { font-size: clamp(1.1rem, 4.2vw, 1.3rem); margin-top: 0.6em; }
+}
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900 leading-relaxed">
+
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#"><img src="images/logotype.png" alt="ワカイトキー" class="h-12"></a>
+        
+        <div class="hidden md:flex items-center space-x-6 font-medium text-sm">
+            <a href="manual_pc.html" class="text-gray-600 hover:text-blue-600 transition">使い方</a>
+            <!-- PC 설치 파일 다운로드 (wakaito.com/download → GitHub Releases 최신판으로 넘겨줌, PC 화면에서만 표시) -->
+            <a href="download/" class="border border-gray-300 text-gray-800 px-5 py-2.5 rounded-lg hover:border-blue-600 hover:text-blue-600 transition flex items-center justify-center gap-2 leading-none">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>
+                PC版ダウンロード
+            </a>
+            <a href="#demo" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition flex items-center justify-center leading-none">
+                今すぐ体験する
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="w-full relative">
+    <picture>
+        <source media="(max-width: 767px)" srcset="images/hero_mobile.png">
+        <img src="images/hero.png" alt="Hatabang Hero" class="w-full object-cover">
+    </picture>
+    <div class="absolute leading-snug hero-copy">
+        <p class="hero-line-lead">PCでも、フリック。</p>
+        <p class="hero-line-main">若いと、ワカイトキー。</p>
+        <p class="hero-subtitle"></p>
+    </div>
+</section>
+
+<section id="intro" class="pt-14 pb-16 md:py-20 bg-white text-center px-6">
+    <div class="max-w-4xl mx-auto">
+        <p class="text-blue-600 font-bold text-2xl md:text-5xl tracking-tight leading-snug">
+            <span class="inline-block keep-phrase">左手にテンキー、</span><br class="md:hidden">
+            <span class="inline-block keep-phrase">右手でフリック</span>
+        </p>
+        <h1 class="text-[3.75rem] md:text-[100px] font-black mt-2 md:mt-4 leading-none md:leading-[1.2] text-gray-800 whitespace-nowrap" translate="no">
+            <span class="text-blue-600">ワカイトキー</span>
+        </h1>
+        <div class="mt-8 md:mt-12">
+            <img src="images/pc.png" alt="ワカイトキーのキー配列" class="mx-auto w-full max-w-xl drop-shadow-2xl rounded-xl">
+        </div>
+    </div>
+</section>
+
+    <section id="how-to" class="py-14 md:py-20 max-w-6xl mx-auto px-6 border-t border-gray-100">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="md:w-1/2">
+                <img src="images/mnemonic.png" alt="ဗျည်းရိုက်နှိပ်ပုံစံ" class="w-full rounded-xl border border-gray-100 shadow-sm">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-800 leading-snug">
+                    一度見たら絶対に忘れられない<br class="md:hidden"><span class="keep-phrase">テンキー配列</span>
+                </h3>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="block md:flex md:items-start">
+                        <span class="text-blue-500 mr-2 md:mr-3 md:mt-1">✓</span>
+                        <span>標準テンキーは親指用、<br class="md:hidden">ワカイトキーは10本指用。</span>
+					</li>
+                    <li class="block md:flex md:items-start">
+                        <span class="text-blue-500 mr-2 md:mr-3 md:mt-1">✓</span>
+                        <span>初日からすぐにタッチタイピングを<br class="md:hidden">試してみてください！</span>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-14 md:py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
+                <div class="md:w-1/2">
+                    <img src="images/arrows.png" alt="予測候補の選択キー" class="w-full rounded-xl border border-gray-100 shadow-sm">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+				<h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-800 leading-snug">
+					フリック世代のための、<br class="md:hidden"><span class="keep-phrase">もう一つの革新！</span>
+				</h3>
+
+				<ul class="space-y-4 text-gray-600">
+					<li class="block md:flex md:items-start">
+						<span class="text-blue-500 mr-2 md:mr-3 md:mt-1">✓</span>
+						<span class="text-lg">ワカイトキーのスペースキーは、<br class="md:hidden">変換キーではなく<span class="keep-phrase">予測候補の選択キー！</span></span>
+					</li>
+					<li class="block md:flex md:items-start">
+						<span class="text-blue-500 mr-2 md:mr-3 md:mt-1">✓</span>
+						<span class="text-lg">面倒だった矢印キーとEnterキーから、<br class="md:hidden">完全解放！</span>
+					</li>
+				</ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<section id="demo" class="py-16 md:py-24 text-center px-6">
+    <h2 class="text-xl md:text-3xl font-bold mb-10 md:mb-16 text-balance">今すぐ体験してみてください。</h2>
+    <div class="max-w-2xl mx-auto">
+
+        <!-- PC Card -->
+        <div class="p-6 md:p-10 rounded-3xl bg-white border border-gray-100 shadow-xl flex flex-col items-center relative overflow-hidden">
+            <h4 class="text-xl font-bold mb-6 text-gray-800">ワカイトキー Demo</h4>
+            <div class="h-32 flex items-center mb-8">
+                <img src="images/pc.png" alt="PC demo" class="max-h-full w-auto object-contain grayscale hover:grayscale-0 transition duration-500">
+            </div>
+            <a href="try.html" class="inline-block w-full py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-blue-600 transition text-center">体験する</a>
+            <!-- 체험 뒤 바로 설치로 이어지게 -->
+            <a href="download/" class="inline-block w-full mt-3 py-3 bg-white text-gray-900 border border-gray-300 rounded-xl font-bold hover:border-blue-600 hover:text-blue-600 transition text-center">PC版をダウンロード（Windows 10 / 11）</a>
+            <a href="manual_pc.html" class="mt-4 text-sm text-gray-500 hover:text-blue-600 underline underline-offset-4">取扱説明書を見る</a>
+
+            <!-- 모바일에서 볼 때: PC 안내 오버레이 (md 이상에서는 숨김) -->
+            <div id="pc-overlay"
+                 class="absolute inset-0 rounded-3xl flex md:hidden flex-col items-center justify-center gap-3 px-6"
+                 style="background:rgba(255,255,255,0.97); backdrop-filter:blur(4px);">
+                <h4 class="text-xl font-bold text-gray-800">ワカイトキー Demo</h4>
+                <span class="text-5xl">🖥️</span>
+                <p class="text-base font-bold text-gray-700">この体験はPC専用です</p>
+                <p class="text-sm text-gray-500 leading-relaxed">
+                    パソコンのブラウザで<br><span class="keep-phrase">wakaito.com</span> を開いて<br>お試しください。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+    <footer class="py-12 border-t border-gray-100 text-center text-gray-400 text-sm">
+        <p>© 2026 WAKAITOKEY All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
